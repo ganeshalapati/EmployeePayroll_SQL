@@ -50,3 +50,24 @@ mysql> DESCRIBE employee_payroll;
 | salary | double       | NO   |     | NULL    |                |
 | start  | date         | NO   |     | NULL    |                |
 +--------+--------------+------+-----+---------
+
+****************************************
+
+#UC-3
+
+mysql> insert into employee_payroll (name, salary, start) VALUES
+    -> ('gan', 10000000, '2019-01-03'),
+    -> ('gan', 10000000, '2019-01-03'),
+    -> ('ganesh', 10000000, '2021-01-03');
+Query OK, 3 rows affected (0.05 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+------------+----------+------------+
+| id | name       | salary   | start      |
++----+------------+----------+------------+
+|  1 | gan        | 10000000 | 2019-01-03 |
+|  2 | gan        | 10000000 | 2019-01-03 |
+|  3 | ganesh     | 10000000 | 2021-01-03 |
++----+------------+----------+------------+
+3 rows in set (0.04 sec)
