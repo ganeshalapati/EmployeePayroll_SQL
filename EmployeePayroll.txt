@@ -131,3 +131,51 @@ mysql> SELECT * FROM employee_payroll
 |  3 | ganesh     | m      | 500000000 | 2021-01-03 |
 +----+------------+--------+-----------+------------+
 3 rows in set (0.01 sec)
+******************************************************
+#UC - 7
+
+mysql> SELECT AVG(salary) from employee_payroll where gender ='m' group by gender
+    -> ;
++-------------+
+| AVG(salary) |
++-------------+
+|   500000000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(salary) from employee_payroll group by gender
+    -> ;
++-------------+
+| AVG(salary) |
++-------------+
+|    10000000 |
+|   500000000 |
++-------------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT gender, AVG(salary) from employee_payroll group by gender;
++--------+-------------+
+| gender | AVG(salary) |
++--------+-------------+
+| f      |    10000000 |
+| m      |   500000000 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT gender, count(name) from employee_payroll group by gender;
++--------+-------------+
+| gender | count(name) |
++--------+-------------+
+| f      |           2 |
+| m      |           1 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT gender, sum(salary) from employee_payroll group by gender;
++--------+-------------+
+| gender | sum(salary) |
++--------+-------------+
+| f      |    20000000 |
+| m      |   500000000 |
++--------+-------------+
+2 rows in set (0.00 sec)
